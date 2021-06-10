@@ -1,0 +1,67 @@
+#include <stdio.h>
+//Calculate array size
+//swap function not handle null pointer scenario
+//not much safe to use
+int main()
+{
+    int a[10],a1[10],b[10];
+    //get array size
+    int i ,j,temp,n,m,k,z;
+    printf("enter total no.of elements:");
+    scanf("%d",&n);
+    printf("enter the elements:");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    printf("enter total no.of elements:");
+    scanf("%d",&m);
+    printf("enter the elements:");
+    for(i=0;i<m;i++)
+    {
+        scanf("%d",&a1[i]);
+    }
+    for (i = 0; i < n; i++) /*Merge the array */
+    {
+        b[i]=a[i];
+    }
+    for(j=0;j<m;j++)
+    {
+        b[i]=a1[j];
+        i++;
+    }
+    z=n+m;
+    for(i=0;i<z;i++)       /*Remove the dupilcate array */
+    {
+        for(j=i+1;j<z;j++)
+        {
+            if(b[i]==b[j])
+            {
+               for(k=j;k<z;k++)
+               {
+                   b[k]=b[k+1];
+               }
+            z--;
+            j--;
+            }
+        }
+    }
+    printf("Union:");
+    for(i=0;i<z;i++)
+    {
+        printf("%d ",b[i]);
+    }
+    printf("\nIntersection:");
+    for(i=0;i<n;i++)                          /* find the common elements in an array */
+    {
+        for(j=0;j<m;j++)
+        {
+            if(a[i]==a1[j])
+            {
+                printf("%d ",a[i]);
+            }
+        }
+    }
+    
+    return 0;
+}
