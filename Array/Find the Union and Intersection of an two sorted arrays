@@ -46,6 +46,18 @@ int main()
     printf("Union:");
     for(i=0;i<z;i++)
     {
+        for(j=0;j<z;j++)
+        {
+            if(b[i]<b[j])      // ascending order
+            {
+                temp=b[i];
+                b[i]=b[j];
+                b[j]=temp;
+            }
+        }
+    }
+    for(i=0;i<z;i++)
+    {
         printf("%d ",b[i]);
     }
     printf("\nIntersection:");
