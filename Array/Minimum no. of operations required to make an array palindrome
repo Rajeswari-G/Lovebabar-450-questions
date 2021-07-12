@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+   
+   int *a,n,i,j,k=0;
+   printf("enter the no.of elements in an array:");
+   scanf("%d",&n);
+   a=(int*)malloc(n*sizeof(int));
+   printf("Elements in a array:");
+   for(i=0;i<n;i++)
+   {
+       scanf("%d",&a[i]);
+   }
+   i=0;
+   j=n-1;
+   while(i<=j)
+   {
+        if (a[i] == a[j])
+        {
+         i++;
+         j--;
+      }
+      else if (a[i] > a[j])
+      {
+         j--;
+         a[j] += a[j+1] ;
+         k++;
+      } 
+      else
+      {
+         i++;
+         a[i] += a[i-1];
+         k++;
+      }
+   }
+   printf("%d",k);
+
+    return 0;
+}
