@@ -42,7 +42,7 @@ int main()
     }
     else if(k==1)
     {
-        median=c[1];
+        median=c[0];
     }
     else if(k%2==0)
     {
