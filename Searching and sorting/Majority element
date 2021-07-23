@@ -1,0 +1,46 @@
+//maximum and minimum of an array using minimum number of comparisons 
+
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int *a,n,count,i,j,k,l=0;
+    printf("Enter the total no.of values:");
+    scanf("%d",&n);
+    a=(int*)malloc(n*sizeof(int));
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    for(i=0;i<n;i++)
+    {
+        count=0;
+        for(j=i;j<n;j++)
+        {
+            if(a[i]==a[j])
+            count++;
+        }
+        k=(count>n/2)?a[i]:0;
+        if(k!=0)
+        {
+           printf("Majority element =%d",a[k]);
+           break;
+        }
+        
+    }
+    if(k==0)
+    printf("No majority element");
+    
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
