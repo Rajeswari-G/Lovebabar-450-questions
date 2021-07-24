@@ -1,0 +1,24 @@
+//Find the missing number in Arithmetic Progression
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int *a,n,i,k,l,diff;
+    printf("Enter the no.of elements:");
+    scanf("%d",&n);
+    a=(int*)malloc(n*sizeof(int));
+    for(i=0;i<n;i++)
+    {
+    scanf("%d",&a[i]);
+    }
+    k=a[1]-a[0];   
+    l=a[n-1]-a[n-2];
+    diff=k>l?l:k;
+    for(i=1;i<n;i++)
+    {
+    
+        if(a[i]!=a[i-1]+diff)
+        printf("%d",a[i-1]+diff);
+    }
+    return 0;
+}
