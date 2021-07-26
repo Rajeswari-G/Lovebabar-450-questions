@@ -1,0 +1,28 @@
+//Print all subarrays with 0 sum
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int *a,i,j,sum,n;
+    printf("Enter the total no.of values:");
+    scanf("%d",&n);
+    printf("Enter the array:");
+    a=(int*)malloc(n*sizeof(int));
+    for(i=0;i<n;i++)
+    {
+       scanf("%d",&a[i]);
+    }
+    for(i=0;i<n;i++)
+    {
+        sum=0;
+        for(j=i;j<n;j++)
+        {
+            sum+=a[j];
+            if(sum==0)
+            {
+              printf("\nSubarray found from Index %d to %d",i,j);
+            }
+        }
+ }
+    return 0;
+}
