@@ -1,0 +1,29 @@
+#include<string.h>
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+	int i,j,l,n;
+	char str[100];
+	printf("Enter the string:");
+	scanf("%[^\n]s",str);
+	n=strlen(str);
+	for(i=0;i<n;i++)
+	{
+		for(j=i+1;j<n;j++)
+		{
+	        if(str[i]==str[j])
+	        {
+			  for(l=j;l<n;l++)
+			 {
+			     str[l]=str[l+1];
+			 }
+			 n--;
+			 j--;
+			}
+		}
+	}
+	printf("\nMaximum length is %d",n);
+	getch();
+	return 0;
+}
