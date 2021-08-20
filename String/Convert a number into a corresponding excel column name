@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+char *convert_To_Excel_Title(int column_no)
+{
+    if (column_no <= 0) {
+        return "";
+    }
+
+    char *result = (char *)malloc(column_no*sizeof(char));
+    int len = 0;
+    do {
+        result[len++] = ((column_no - 1) % 26) + 'A';
+        column_no = (column_no - 1) / 26;
+    } while (column_no > 0);
+    result[len] = '\0';
+
+    int i, j;
+    for (i = 0, j = len - 1; i < j; i++, j--) {
+        char c = result[i];
+        result[i] = result[j];
+        result[j] = c;
+    }
+    return result;
+}
+
+int main(void)
+{
+    int n ;
+    printf("\nEnter the Column Number n =");
+    scanf("%d",&n);
+    printf("\nExcel column title: %s ",convert_To_Excel_Title(n));
+    getch();
+    return 0;
+}
