@@ -1,0 +1,67 @@
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+    int a[50],b[50],c[50];
+    int i,j,n,k,l,temp,z;
+    printf("Enter size of the  array : ");
+    scanf("%d", &n);
+    printf("Enter elements in array : ");
+    j=k=0;
+    for(i=0; i<n; i++)
+    {
+        scanf("%d",&a[i]);
+        //store the even numbers in b array
+        if(a[i]%2==0)
+        {
+            b[j]=a[i];
+            j++;
+        }
+        //store the odd numbers in c array
+        else
+        {
+            c[k]=a[i];
+            k++;
+        }
+    }
+    //sort the odd numbers
+    for(i=0;i<k;i++)
+    {
+        for(l=i+1;l<k;l++)
+        {
+            if(c[i]<c[j])
+            {
+                temp=c[i];
+                c[i]=c[j];
+                c[j]=temp;
+            }
+        }
+    }
+    
+    // sort the even numbers
+    for(i=0;i<j;i++)
+    {
+        for(l=i+1;l<j;l++)
+        {
+            if(b[i]>b[j])
+            {
+                temp=b[i];
+                b[i]=b[j];
+                b[j]=temp;
+            }
+        }
+    }
+    //print the odd numbers in descending order 
+    for(i=0;i<k;i++)
+    {
+        printf("%d ",c[i]);
+    }
+    
+    //print the even numbers in ascending order
+    for(i=0;i<j;i++)
+    {
+     printf("%d ",b[i]);
+    }
+    getch();
+    return 0;
+}
