@@ -1,0 +1,63 @@
+Input: 
+string:oxibcad
+pattern:abc
+output: True 
+#include <stdio.h>  
+#include <string.h> 
+#include<conio.h>
+void substring(char s[], char sub[], int p, int len){  
+   int c = 0;  
+   while (c < len) {  
+      sub[c] = s[p+c];  
+      c++;  
+   }  
+   sub[c] = '\0';  
+  
+} 
+void generatePermutation(char *c,char *d,const int start, int end)  
+{  
+  char temp;
+  int i,j,k;  
+  for(i = start; i < end-1; ++i)
+  {  
+    for(j = i+1; j < end; ++j)  
+   {  
+    temp = c[i];  
+    c[i] = c[j];  
+    c[j] = temp; 
+  generatePermutation(c , d,i+1 ,end);  
+    temp = c[i];  
+    c[i] = c[j];  
+    c[j] = temp;
+    
+    
+    }  
+  }  
+  if(strcmp(d,c)==0)
+  {
+      printf("\nTrue");
+  }
+
+}  
+   
+int main()  
+{  
+    char c[10],str[10],d[10];  
+    int i, j, len ;
+    printf("Enter a string:");
+    scanf("%s",str);
+    len= strlen(str);  
+    printf("Enter the pattern:");
+    scanf("%s",d);
+    for(i = 0; i < len; i++)
+    {  
+        for(j = 1; j <= len-i; j++)
+        {  
+            substring(str,c,i,j);
+            generatePermutation(c,d,0,j);
+             
+        }  
+    }  
+    getch();
+    return 0;  
+}  
