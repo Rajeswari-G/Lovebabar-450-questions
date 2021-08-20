@@ -1,0 +1,59 @@
+Input : a ab dce e
+output: 6
+here "ab" ,"dce" have an non repeated characters.
+length=stelen(word[i]) * strlen(word[j])
+
+#include<string.h>
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+	int i,j,k,l;
+	int count=0,max=0;
+	int a,p,n,len;
+	char str[10][10];
+	printf("Enter the size of the string:");
+	scanf("%d",&n);
+	//store the elements
+	printf("Enter the string:");
+	for(i=0;i<n;i++)
+	{
+		scanf("%s[^\n]",str[i]);
+	}
+	
+	for(i=0;i<n;i++)
+	{
+		for(j=i+1;j<n;j++)
+		{
+			count=0;
+			a=strlen(str[i]);
+			p=strlen(str[j]);
+			for(l=0;l<a;l++)
+			{
+				for(k=0;k<p;k++)
+				{
+					if(str[i][l]!=str[j][k])
+					{
+					  count++;
+			     	}
+					else
+					{
+					  count=0;
+					  break;
+				    }
+				}
+			}
+		    if(a*p==count)
+		    {
+			   if(count>max)
+			   {
+				max=a*p;
+				
+			   }
+		   }
+		}
+	}
+	printf("\nMaximum length is %d",max);
+	getch();
+	return 0;
+}
