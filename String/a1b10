@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<string.h>
+#include<conio.h>
+int main()
+{
+    char x[20];
+    int i,n,a,j;
+    printf("Enter a string:");
+    scanf("%s",x);
+    n=strlen(x);
+    for(i=0;i<n;i++)
+    {
+     
+     if(x[i]>=97 &&x[i]<=122)
+     {
+          a=x[i+1]-48;
+         
+          if(x[i+2]>=48 && x[i+2]<=57)
+          {
+             a=a*10+(x[i+2]-48);
+             for(j=1;j<=a;j++)
+             {
+                printf("%c",x[i]);
+             }
+       
+          }
+         else 
+         {
+          for(j=1;j<=a;j++)
+          {
+            printf("%c",x[i]);
+           }
+        
+         }
+         a=0;
+            
+     }
+     
+    }
+    getch();
+    return 0;
+}
