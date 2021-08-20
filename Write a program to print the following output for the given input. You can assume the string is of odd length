@@ -1,0 +1,43 @@
+Write a program to print the following output for the given input. You can assume the string is of odd length
+
+Eg 1: Input: 12345
+       Output:
+1       5
+  2   4
+    3
+  2  4
+1      5
+
+
+
+#include <stdio.h>  
+#include <string.h> 
+int main()
+{
+    char s[20];
+    int n,i,j,k;
+    printf("Enter a string:");
+    scanf("%s",s);
+	 n = strlen(s);
+    if(n%2!=0)
+    {
+	for (i=0,j=n-1; i<n;i++,j--)
+	{
+		 
+		for (k=0;k<n;k++)
+		{
+			if (k== i||k == j)
+			printf("%c",s[k]);
+			else
+			printf(" ");
+		}
+		printf("\n");	
+	}
+    }
+    else
+    {
+        printf("Enter a valid string");
+    }
+
+    return 0;
+}
