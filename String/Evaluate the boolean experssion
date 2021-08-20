@@ -1,0 +1,53 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main()
+{
+	char a[100];
+	int n,i,j;
+	printf("Enter the string:");
+	scanf("%s",a);
+	n=strlen(a);
+	for(i=1;i<n;i+=2)
+	{
+		if(a[i]=='A')
+		{
+			if((a[i-1]=='1'&& a[i+1]=='0') || (a[i-1]=='0' && a[i+1]=='1') || (a[i-1]=='0' && a[i+1]=='0'))
+			{
+				a[i+1]='0';
+			}
+			else
+			{
+				a[i+1]='1';
+			}
+		}
+		else if(a[i]=='B')
+		{
+			if((a[i-1]=='1'&& a[i+1]=='0') || (a[i-1]=='0' && a[i+1]=='1') || (a[i-1]=='1' && a[i+1]=='1'))
+			{
+				a[i+1]='1';
+			}
+			else
+			{
+				a[i+1]='0';
+			}
+			
+		}
+		else
+		{
+			if((a[i-1]=='1'&&a[i+1]=='0')||(a[i-1]=='0'&&a[i+1]=='1'))
+			{
+				a[i+1]='1';
+			}
+			else
+			{
+				a[i+1]='0';
+			}
+		}
+		
+	}
+	j=a[n-1]-'0';
+    printf("\nJ=%d",j);
+	getch();
+	return 0;
+}
