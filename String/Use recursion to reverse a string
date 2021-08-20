@@ -1,0 +1,24 @@
+#include<string.h>
+#include<stdio.h>
+void printstring(char *);
+int main()
+{
+    char a[10][10];
+    int i,n,j;
+    printf("Enter the size of on array:");
+    scanf("%d",&n);
+    printf("Enter the string:");
+    for(i=0;i<n;i++)
+    {
+        scanf("%s[^\n]",a[i]);
+    }
+    for(j=n-1;j>=0;j--)
+    {
+        printstring(a[j]);
+    }
+    return 0;
+}
+void printstring(char *a)
+{
+    printf("%s ",a);
+}
