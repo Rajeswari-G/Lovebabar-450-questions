@@ -1,0 +1,32 @@
+Input : N=4
+ouput :  1001
+         0110
+         0110
+         1001
+         
+         
+#include <stdio.h>
+#include<conio.h>
+int main() 
+{
+    int row,col;
+    int i,j,n;
+    int arr[50][50];
+    printf("Enter the row and column:");
+    scanf("%d %d",&row,&col);
+    for(i=0,j=row-1;i<row;i++,j--)
+    {
+        arr[i][i]=1;
+          arr[i][j]=1;
+    }
+    for(i=0;i<row;i++)
+    {
+        for(j=0;j<row;j++)
+        {
+            printf("%d",arr[i][j]);
+        }
+        printf("\n");
+    }
+    getch();
+    return 0;
+}         
