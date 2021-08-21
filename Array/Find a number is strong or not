@@ -1,0 +1,39 @@
+Write a program to find wheter the number is strong or not ?
+A number is said to be a strong if sum of factorial of digits is equal to the original number.
+INPUT:145
+OUTPUT:YES
+{ 145 = 1! +4! +5!= 1+24+120=145}
+
+
+#include<stdio.h>
+int fact (int a);
+int main()
+{
+    int n,i,sum=0,rem;
+    printf("Enter the number:");
+    scanf("%d",&n);
+    int m=n;
+    while(n)
+    {
+        rem=n%10;
+        sum=sum+fact(rem);
+        n=n/10;
+    }
+    if(sum==m)
+    printf("YES");
+    else
+    printf("NO");
+    return 0;
+}
+
+int fact(int a)
+{
+    int c=1;
+    for(int i=1;i<=a;i++)
+    {
+        c=c*i;
+    }
+    return c;
+}
+    
+ 
