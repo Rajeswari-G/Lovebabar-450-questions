@@ -1,0 +1,41 @@
+Given a size of array N. Ideally it should contain 1 to N numbers, but one number is overridden by any other value.Return the number which is overridden.
+
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+int *a,n,i,j;
+printf("Size:");
+scanf("%d",&n);
+printf("Elements:");
+a=(int*)malloc(n*sizeof(int));
+for(i=0;i<n;i++)
+{
+scanf("%d",&a[i]);
+}
+
+//sorting the array elements 
+for(i=0;i<n;i++)
+{
+for(j=i+1;j<n;j++)
+{
+if(a[i]>a[j])
+{
+int temp=a[i];
+a[i]=a[j];
+a[j]=temp;
+}
+}
+}
+
+//check the overridden
+for(i=0;i<n;i++)
+{
+if(a[i]!=i+1)
+{
+printf("%d",i+1);
+break;
+}
+}
+return 0;
+}
