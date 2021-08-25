@@ -1,0 +1,72 @@
+Input: image = [[1,1,0],[1,0,1],[0,0,0]]
+Output: [[1,0,0],[0,1,0],[1,1,1]]
+Explanation: First reverse each row: [[0,1,1],[1,0,1],[0,0,0]].
+Then, invert the image: [[1,0,0],[0,1,0],[1,1,1]]
+
+
+
+
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+	int a[100][100],row,col;
+	int m,n,b[100][100],i,j;
+	printf("Enter the row:");
+	scanf("%d",&row);
+	printf("Enter the column:");
+	scanf("%d",&col);
+	//Store the array elements 
+	printf("Enter the elements:");     
+	for(i=0;i<row;i++)
+	{
+		for(j=0;j<col;j++)
+		{
+			scanf("%d ",&a[i][j]);
+		}
+	}
+	
+	// reverse the array and store it an another array 
+	m=0,n=0;
+	for(i=0;i<row;i++)
+	{
+		for(j=col-1;j>=0;j--)
+		{
+		     if (j==0)
+			 {
+			 	b[m][n]=a[i][j];
+			 	m++;
+			 	n=0;
+			}
+			else
+			{
+				b[m][n]=a[i][j];
+				n++;
+			}	
+		}
+	}
+	
+    //Reassign the values if 0's present change it 1 and 1's present change it 0.
+	for(i=0;i<row;i++)
+	{
+		for(j=0;j<col;j++)
+		{
+			if(b[i][j]==0)
+			{
+			  b[i][j]=1;
+			  printf("%d ",b[i][j]);
+			}
+			else if(b[i][j]==1)
+			{
+		      b[i][j]=0;
+		      printf("%d ",b[i][j]);
+			}
+		}
+		printf("\n");
+	}
+
+	getch();
+	return 0;
+		
+}
